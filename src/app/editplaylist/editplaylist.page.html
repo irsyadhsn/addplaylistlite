@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-item>
+      <ion-icon style="font-size:35px ; margin-right: 10px;" name="arrow-back-outline"
+        [routerLink]="['/tabs/playlist']">
+      </ion-icon>
+      <ion-text>
+        <h2><strong>Edit Playlist</strong> </h2>
+      </ion-text>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+  <ion-list lines="full">
+    <ion-item>
+      <ion-label position="floating">Title Playlist</ion-label>
+      <ion-input required [(ngModel)]="title" placeholder="Input Title Playlist" type="text"> </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Detail</ion-label>
+      <ion-input required [(ngModel)]="detail" placeholder="Masukkan Keterangan" type="text"> </ion-input>
+    </ion-item>
+    <ion-input required [(ngModel)]="id" type="hidden"> </ion-input>
+    <ion-row>
+      <ion-col>
+        <ion-button type="button" (click)="editPlaylist()" color="success" shape="circles" expand="block">Edit
+          Playlist
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>

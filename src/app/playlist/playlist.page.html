@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+  </ion-header>
+  <ion-content>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <h2><strong>Your Playlist</strong> </h2>
+      <ion-icon slot="end" name="add" style="font-size:40px" [routerLink]="['/tambahplaylist']"></ion-icon>
+
+    </ion-item>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content pullingIcon="chevron-down-circle-outline" pullingText="Tarik Untuk Memuat Data"
+        refreshingSpinner="circles" refreshingText="Memuat Ulang Data..."> </ion-refresher-content>
+    </ion-refresher>
+    <hr>
+
+    <hr>
+    <ion-card *ngFor="let item of lists">
+      <ion-item>
+        <ion-label>
+          <span style="color: grey ;"> {{item.id}}. </span> {{item.title}}
+          <p>{{item.detail}}</p>
+        </ion-label>
+        <ion-icon slot="end" name="create-outline" [routerLink]="['/editplaylist/',item.id]"
+          routerLinkActive="router-link-active"></ion-icon>
+        <ion-icon name="trash-outline" color="danger" slot="end" (click)="deletePlaylist(item.id)">Hapus</ion-icon>
+      </ion-item>
+    </ion-card>
+    <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+      <ion-infinite-scroll-content loadingSpinner="circles" loadingText="Sedang Memuat Data...">
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-content>

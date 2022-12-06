@@ -1,0 +1,20 @@
+<ion-header>
+
+</ion-header>
+<ion-content>
+  <ion-text>
+    <h2><strong>Profile</strong> </h2>
+  </ion-text>
+  <hr>
+  <h3>
+    <strong>Username : {{ nama }}</strong>
+  </h3>
+
+  <ion-card>
+    <ion-button color="danger" expand="block" (click)="logout()">
+      <ion-icon slot="start" ios="exit-outline" md="exit-sharp">
+      </ion-icon>
+      Logout
+    </ion-button>
+  </ion-card>
+</ion-content>
